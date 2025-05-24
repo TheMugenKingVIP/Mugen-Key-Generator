@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mugen Key Generator - Hacker Mode</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: "Courier New", monospace;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      border: 2px solid #0f0;
+      padding: 25px;
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 0 15px #0f0;
+    }
+
+    h1 {
+      color: #0f0;
+      text-shadow: 0 0 5px #0f0;
+      font-size: 24px;
+    }
+
+    .clock {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .key {
+      background: #111;
+      border: 1px solid #0f0;
+      padding: 15px;
+      margin-top: 15px;
+      font-size: 13px;
+      min-height: 50px;
+      word-break: break-word;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+      padding: 6px 10px;
+      margin: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #0f0;
+      color: #000;
+    }
+
+    #status {
+      font-size: 13px;
+      margin-top: 10px;
+      color: #0f0;
+      height: 18px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #090;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mugen Key Generator [Hacker Edition]</h1>
+    <div class="clock" id="clock">Loading time...</div>
+
+    <div class="button-group">
+      <button onclick="generateKey(50)">Premium</button>
+      <button onclick="generateKey(100)">Very Premium</button>
+      <button onclick="appendNumber()">Add Number</button>
+      <button onclick="appendAnimal()">Add Animal</button>
+      <button onclick="appendUniverse()">Add Universe</button>
+      <button onclick="appendCity()">Add City</button>
+      <button onclick="appendMythology()">Add Mythology</button>
+      <button onclick="appendNature()">Add Nature</button>
+      <button onclick="appendElement()">Add Element</button>
+      <button onclick="appendHumanity()">Add Humanity</button>
+      <button onclick="appendEmotion()">Add Emotion</button>
+      <button onclick="appendAbstract()">Add Abstract</button>
+      <button onclick="appendMystery()">Add Mystery</button>
+      <button onclick="appendEnergy()">Add Energy</button>
+      <button onclick="appendJourney()">Add Journey</button>
+      <button onclick="appendLight()">Add Light</button>
+      <button onclick="appendCulture()">Add Culture</button>
+      <button onclick="appendTechnology()">Add Technology</button>
+      <button onclick="appendFantasy()">Add Fantasy</button>
+      <button onclick="appendPlace()">Add Place</button>
+      <button onclick="copyToClipboard()">Copy</button>
+    </div>
+
+    <div class="key" id="output">Your MugenKey will appear here...</div>
+    <div id="status"></div>
+    <div class="footer">@TheMugenKing | ZR Team | Hacker Edition</div>
+  </div>
+
+  <!-- Relaxing Background Music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/31/audio_7f7e2cc2f7.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <script>
+    let currentKey = '';
+
+    const data = {
+      animals: ['Tiger', 'Falcon', 'Dolphin', 'Phoenix'],
+      universe: ['Andromeda', 'MilkyWay', 'NebulaX'],
+      cities: ['Tokyo', 'Paris', 'Dubai'],
+      mythology: ['Zeus', 'Thor', 'Anubis'],
+      nature: ['Forest', 'River', 'Volcano'],
+      elements: ['Fire', 'Water', 'Lightning'],
+      humanity: ['Hope', 'War', 'Love'],
+      emotion: ['Joy', 'Anger', 'Fear'],
+      abstract: ['Infinity', 'Void', 'Eternity'],
+      mystery: ['Unknown', 'Secret', 'Darkness'],
+      energy: ['Pulse', 'Charge', 'Spark'],
+      journey: ['Path', 'Quest', 'Adventure'],
+      light: ['Glow', 'Shine', 'Radiance'],
+      culture: ['Tradition', 'Ritual', 'Belief'],
+      technology: ['Circuit', 'AI', 'Quantum'],
+      fantasy: ['Elf', 'Dragon', 'Wizard'],
+      place: ['Castle', 'Temple', 'Sanctuary']
+    };
+
+    const prefixMap = {
+      animals: 'A', universe: 'U', cities: 'C', mythology: 'M',
+      nature: 'N', elements: 'E', humanity: 'H', emotion: 'E',
+      abstract: 'B', mystery: 'Y', energy: 'G', journey: 'J',
+      light: 'L', culture: 'T', technology: 'K', fantasy: 'F',
+      place: 'P'
+    };
+
+    function generateKey(length) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let result = 'MugenKey';
+      for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      currentKey = result;
+      document.getElementById("output").innerText = result;
+      document.getElementById("status").innerText = '';
+    }
+
+    function appendData(type) {
+      if (!currentKey) return;
+      const arr = data[type];
+      const prefix = prefixMap[type];
+      const val = arr[Math.floor(Math.random() * arr.length)];
+      currentKey += prefix + val;
+      document.getElementById("output").innerText = currentKey;
+    }
+
+    const appendAnimal = () => appendData('animals');
+    const appendUniverse = () => appendData('universe');
+    const appendCity = () => appendData('cities');
+    const appendMythology = () => appendData('mythology');
+    const appendNature = () => appendData('nature');
+    const appendElement = () => appendData('elements');
+    const appendHumanity = () => appendData('humanity');
+    const appendEmotion = () => appendData('emotion');
+    const appendAbstract = () => appendData('abstract');
+    const appendMystery = () => appendData('mystery');
+    const appendEnergy = () => appendData('energy');
+    const appendJourney = () => appendData('journey');
+    const appendLight = () => appendData('light');
+    const appendCulture = () => appendData('culture');
+    const appendTechnology = () => appendData('technology');
+    const appendFantasy = () => appendData('fantasy');
+    const appendPlace = () => appendData('place');
+
+    function appendNumber() {
+      if (!currentKey) return;
+      const number = Math.floor(Math.random() * 1e18);
+      currentKey += 'N' + number;
+      document.getElementById("output").innerText = currentKey;
+    }
+
+    function copyToClipboard() {
+      if (!currentKey) {
+        document.getElementById("status").innerText = 'Generate a key first!';
+        return;
+      }
+      navigator.clipboard.writeText(currentKey).then(() => {
+        document.getElementById("status").innerText = 'Key copied!';
+      }).catch(() => {
+        document.getElementById("status").innerText = 'Copy failed.';
+      });
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleString();
+      document.getElementById('clock').innerText = `Time: ${time}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
