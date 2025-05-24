@@ -1,226 +1,594 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Mugen Key Generator - Hacker Mode</title>
+
   <style>
+
     body {
+
       background-color: #000;
+
       color: #0f0;
+
       font-family: "Courier New", monospace;
+
       margin: 0;
+
       padding: 20px;
+
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
     }
+
+
 
     .container {
+
       border: 2px solid #0f0;
+
       padding: 25px;
+
       width: 100%;
+
       max-width: 1000px;
+
       border-radius: 10px;
+
       background: rgba(0, 0, 0, 0.85);
+
       box-shadow: 0 0 15px #0f0;
+
     }
+
+
 
     h1 {
+
       color: #0f0;
+
       text-shadow: 0 0 5px #0f0;
+
       font-size: 24px;
+
     }
+
+
 
     .clock {
+
       font-size: 14px;
+
       margin-bottom: 15px;
+
     }
+
+
 
     .key {
+
       background: #111;
+
       border: 1px solid #0f0;
+
       padding: 15px;
+
       margin-top: 15px;
+
       font-size: 13px;
+
       min-height: 50px;
+
       word-break: break-word;
+
       border-radius: 5px;
+
     }
+
+
 
     button {
+
       background: #000;
+
       color: #0f0;
+
       border: 1px solid #0f0;
+
       padding: 6px 10px;
+
       margin: 4px;
+
       font-size: 12px;
+
       cursor: pointer;
+
       border-radius: 3px;
+
       transition: 0.2s;
+
     }
+
+
 
     button:hover {
+
       background: #0f0;
+
       color: #000;
+
     }
+
+
 
     #status {
+
       font-size: 13px;
+
       margin-top: 10px;
+
       color: #0f0;
+
       height: 18px;
+
     }
+
+
 
     .footer {
+
       margin-top: 20px;
+
       font-size: 12px;
+
       color: #090;
+
     }
+
+
 
     .button-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+}
+
   </style>
+
 </head>
+
 <body>
+
   <div class="container">
+
     <h1>Mugen Key Generator [Hacker Edition]</h1>
+
     <div class="clock" id="clock">Loading time...</div>
 
+
+
     <div class="button-group">
+
       <button onclick="generateKey(50)">Premium</button>
+
       <button onclick="generateKey(100)">Very Premium</button>
+
       <button onclick="appendNumber()">Add Number</button>
+
       <button onclick="appendAnimal()">Add Animal</button>
+
       <button onclick="appendUniverse()">Add Universe</button>
+
       <button onclick="appendCity()">Add City</button>
+
       <button onclick="appendMythology()">Add Mythology</button>
+
       <button onclick="appendNature()">Add Nature</button>
+
       <button onclick="appendElement()">Add Element</button>
+
       <button onclick="appendHumanity()">Add Humanity</button>
+
       <button onclick="appendEmotion()">Add Emotion</button>
+
       <button onclick="appendAbstract()">Add Abstract</button>
+
       <button onclick="appendMystery()">Add Mystery</button>
+
       <button onclick="appendEnergy()">Add Energy</button>
+
       <button onclick="appendJourney()">Add Journey</button>
+
       <button onclick="appendLight()">Add Light</button>
+
       <button onclick="appendCulture()">Add Culture</button>
+
       <button onclick="appendTechnology()">Add Technology</button>
+
       <button onclick="appendFantasy()">Add Fantasy</button>
+
       <button onclick="appendPlace()">Add Place</button>
-      <button onclick="copyToClipboard()">Copy</button>
+
+      
+<button onclick="appendSpirit()">Add Spirit</button>
+<button onclick="appendConflict()">Add Conflict</button>
+<button onclick="appendGeometry()">Add Geometry</button>
+<button onclick="appendMyth()">Add Myth</button>
+<button onclick="appendMind()">Add Mind</button>
+<button onclick="appendPower()">Add Power</button>
+<button onclick="appendDream()">Add Dream</button>
+<button onclick="appendChaos()">Add Chaos</button>
+<button onclick="appendLegacy()">Add Legacy</button>
+<button onclick="appendSky()">Add Sky</button>
+<button onclick="appendSoul()">Add Soul</button>
+<button onclick="appendAdventure()">Add Adventure</button>
+<button onclick="appendSymbol()">Add Symbol</button>
+<button onclick="appendStructure()">Add Structure</button>
+<button onclick="appendEternity()">Add Eternity</button>
+<button onclick="appendForce()">Add Force</button>
+<button onclick="appendRealm()">Add Realm</button>
+<button onclick="appendEcho()">Add Echo</button>
+<button onclick="appendOrigin()">Add Origin</button>
+<button onclick="appendVoid()">Add Void</button>
+<button onclick="appendQuest()">Add Quest</button>
+<button onclick="appendForm()">Add Form</button>
+<button onclick="appendFaith()">Add Faith</button>
+<button onclick="appendFusion()">Add Fusion</button>
+<button onclick="appendVibe()">Add Vibe</button>
+<button onclick="appendCrest()">Add Crest</button>
+<button onclick="appendBalance()">Add Balance</button>
+<button onclick="appendGlimmer()">Add Glimmer</button>
+<button onclick="appendVoyage()">Add Voyage</button>
+<button onclick="appendCore()">Add Core</button>
+<button onclick="appendSpark()">Add Spark</button>
+<button onclick="appendHaven()">Add Haven</button>
+<button onclick="appendFlux()">Add Flux</button>
+<button onclick="appendPulse()">Add Pulse</button>
+<button onclick="copyToClipboard()">Copy</button>
+
     </div>
 
+
+
     <div class="key" id="output">Your MugenKey will appear here...</div>
+
     <div id="status"></div>
+
     <div class="footer">@TheMugenKing | ZR Team | Hacker Edition</div>
+
   </div>
 
+
+
   <!-- Relaxing Background Music -->
+
   <audio autoplay loop>
+
     <source src="https://cdn.pixabay.com/audio/2023/03/31/audio_7f7e2cc2f7.mp3" type="audio/mpeg">
+
     Your browser does not support audio.
+
   </audio>
 
+
+
   <script>
+
     let currentKey = '';
 
+
+
     const data = {
+
       animals: ['Tiger', 'Falcon', 'Dolphin', 'Phoenix'],
+
       universe: ['Andromeda', 'MilkyWay', 'NebulaX'],
+
       cities: ['Tokyo', 'Paris', 'Dubai'],
+
       mythology: ['Zeus', 'Thor', 'Anubis'],
+
       nature: ['Forest', 'River', 'Volcano'],
+
       elements: ['Fire', 'Water', 'Lightning'],
+
       humanity: ['Hope', 'War', 'Love'],
+
       emotion: ['Joy', 'Anger', 'Fear'],
+
       abstract: ['Infinity', 'Void', 'Eternity'],
+
       mystery: ['Unknown', 'Secret', 'Darkness'],
+
       energy: ['Pulse', 'Charge', 'Spark'],
+
       journey: ['Path', 'Quest', 'Adventure'],
+
       light: ['Glow', 'Shine', 'Radiance'],
+
       culture: ['Tradition', 'Ritual', 'Belief'],
+
       technology: ['Circuit', 'AI', 'Quantum'],
+
       fantasy: ['Elf', 'Dragon', 'Wizard'],
-      place: ['Castle', 'Temple', 'Sanctuary']
+
+      place: ['Castle', 'Temple', 'Sanctuary'],
+
+      spirit: ['Soul', 'Aura', 'Wraith'],
+      conflict: ['Battle', 'Struggle', 'Duel'],
+      geometry: ['Hexagon', 'Spiral', 'Fractal'],
+      myth: ['Kraken', 'Cyclops', 'Griffin'],
+      mind: ['Thought', 'Dream', 'Psyche'],
+      power: ['Force', 'Surge', 'Burst'],
+dream: ['Lucid', 'Vision', 'Sleep'],
+chaos: ['Anarchy', 'Riot', 'Pandemonium'],
+legacy: ['Heritage', 'Dynasty', 'Lineage'],
+sky: ['Cloud', 'Stratos', 'Celestia'],
+soul: ['Essence', 'Spirit', 'Being'],
+adventure: ['Expedition', 'Odyssey', 'Excursion'],
+symbol: ['Mark', 'Glyph', 'Insignia'],
+structure: ['Pillar', 'Framework', 'Scaffold'],
+eternity: ['Timeless', 'Endless', 'Forever'],
+force: ['Impact', 'Drive', 'Power'],
+realm: ['Domain', 'Territory', 'Plane'],
+echo: ['Resonance', 'Reverb', 'Call'],
+origin: ['Source', 'Root', 'Beginning'],
+void: ['Emptiness', 'Vacuum', 'Abyss'],
+quest: ['Journey', 'Search', 'Mission'],
+form: ['Shape', 'Figure', 'Outline'],
+faith: ['Belief', 'Conviction', 'Trust'],
+fusion: ['Merge', 'Blend', 'Unite'],
+vibe: ['Mood', 'Tone', 'Aura'],
+crest: ['Peak', 'Summit', 'Crown'],
+balance: ['Equilibrium', 'Stability', 'Harmony'],
+glimmer: ['Sparkle', 'Shimmer', 'Twinkle'],
+voyage: ['Trip', 'Sail', 'Expedition'],
+core: ['Center', 'Heart', 'Nucleus'],
+spark: ['Ignite', 'Flash', 'Glint'],
+haven: ['Refuge', 'Sanctuary', 'Shelter'],
+flux: ['Flow', 'Change', 'Current'],
+pulse: ['Throb', 'Beat', 'Rhythm']
+
+
     };
+
+
 
     const prefixMap = {
+
       animals: 'A', universe: 'U', cities: 'C', mythology: 'M',
+
       nature: 'N', elements: 'E', humanity: 'H', emotion: 'E',
+
       abstract: 'B', mystery: 'Y', energy: 'G', journey: 'J',
+
       light: 'L', culture: 'T', technology: 'K', fantasy: 'F',
-      place: 'P'
+
+      place: 'P',
+
+      spirit: 'S',
+      conflict: 'X',
+      geometry: 'Z',
+      myth: 'Q',
+      mind: 'D',
+      power: 'R',
+dream: 'W',
+chaos: 'X',
+legacy: 'L',
+sky: 'S',
+soul: 'U',
+adventure: 'A',
+symbol: 'Y',
+structure: 'Z',
+eternity: 'E',
+force: 'F',
+realm: 'R',
+echo: 'C',
+origin: 'O',
+void: 'V',
+quest: 'Q',
+form: 'M',
+faith: 'T',
+fusion: 'N',
+vibe: 'B',
+crest: 'K',
+balance: 'H',
+glimmer: 'G',
+voyage: 'J',
+core: 'D',
+spark: 'I',
+haven: 'Z',
+flux: 'U',
+pulse: 'P'
+
+
     };
 
+
+
     function generateKey(length) {
+
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
       let result = 'MugenKey';
+
       for (let i = 0; i < length; i++) {
+
         result += chars.charAt(Math.floor(Math.random() * chars.length));
+
       }
+
       currentKey = result;
+
       document.getElementById("output").innerText = result;
+
       document.getElementById("status").innerText = '';
+
     }
+
+
 
     function appendData(type) {
+
       if (!currentKey) return;
+
       const arr = data[type];
+
       const prefix = prefixMap[type];
+
       const val = arr[Math.floor(Math.random() * arr.length)];
+
       currentKey += prefix + val;
+
       document.getElementById("output").innerText = currentKey;
+
     }
+
+
 
     const appendAnimal = () => appendData('animals');
+
     const appendUniverse = () => appendData('universe');
+
     const appendCity = () => appendData('cities');
+
     const appendMythology = () => appendData('mythology');
+
     const appendNature = () => appendData('nature');
+
     const appendElement = () => appendData('elements');
+
     const appendHumanity = () => appendData('humanity');
+
     const appendEmotion = () => appendData('emotion');
+
     const appendAbstract = () => appendData('abstract');
+
     const appendMystery = () => appendData('mystery');
+
     const appendEnergy = () => appendData('energy');
+
     const appendJourney = () => appendData('journey');
+
     const appendLight = () => appendData('light');
+
     const appendCulture = () => appendData('culture');
+
     const appendTechnology = () => appendData('technology');
+
     const appendFantasy = () => appendData('fantasy');
+
     const appendPlace = () => appendData('place');
+    const appendSpirit = () => appendData('spirit');
+    const appendConflict = () => appendData('conflict');
+    const appendGeometry = () => appendData('geometry');
+    const appendMyth = () => appendData('myth');
+    const appendMind = () => appendData('mind');
+    const appendPower = () => appendData('power');
+const appendDream = () => appendData('dream');
+const appendChaos = () => appendData('chaos');
+const appendLegacy = () => appendData('legacy');
+const appendSky = () => appendData('sky');
+const appendSoul = () => appendData('soul');
+const appendAdventure = () => appendData('adventure');
+const appendSymbol = () => appendData('symbol');
+const appendStructure = () => appendData('structure');
+const appendEternity = () => appendData('eternity');
+const appendForce = () => appendData('force');
+const appendRealm = () => appendData('realm');
+const appendEcho = () => appendData('echo');
+const appendOrigin = () => appendData('origin');
+const appendVoid = () => appendData('void');
+const appendQuest = () => appendData('quest');
+const appendForm = () => appendData('form');
+const appendFaith = () => appendData('faith');
+const appendFusion = () => appendData('fusion');
+const appendVibe = () => appendData('vibe');
+const appendCrest = () => appendData('crest');
+const appendBalance = () => appendData('balance');
+const appendGlimmer = () => appendData('glimmer');
+const appendVoyage = () => appendData('voyage');
+const appendCore = () => appendData('core');
+const appendSpark = () => appendData('spark');
+const appendHaven = () => appendData('haven');
+const appendFlux = () => appendData('flux');
+const appendPulse = () => appendData('pulse');
+
+
+
 
     function appendNumber() {
+
       if (!currentKey) return;
+
       const number = Math.floor(Math.random() * 1e18);
+
       currentKey += 'N' + number;
+
       document.getElementById("output").innerText = currentKey;
+
     }
+
+
 
     function copyToClipboard() {
+
       if (!currentKey) {
+
         document.getElementById("status").innerText = 'Generate a key first!';
+
         return;
+
       }
+
       navigator.clipboard.writeText(currentKey).then(() => {
+
         document.getElementById("status").innerText = 'Key copied!';
+
       }).catch(() => {
+
         document.getElementById("status").innerText = 'Copy failed.';
+
       });
+
     }
+
+
 
     function updateClock() {
+
       const now = new Date();
+
       const time = now.toLocaleString();
+
       document.getElementById('clock').innerText = `Time: ${time}`;
+
     }
 
+
+
     setInterval(updateClock, 1000);
+
     updateClock();
+
   </script>
+
 </body>
+
 </html>
